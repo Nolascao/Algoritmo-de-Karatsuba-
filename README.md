@@ -37,7 +37,7 @@ Nenhuma
 Passo 1: 
 Entre no arquivo "Code/.venv/Lib/site-packages/pip/__main__.py" utilizando sua IDE de preferência
 
-Passo 2: Executar o script
+Passo 2: 
 Rode o arquivo.
 
 ## Versão do Python
