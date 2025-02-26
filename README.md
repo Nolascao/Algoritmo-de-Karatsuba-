@@ -18,7 +18,15 @@ O produto ( x \cdot y ) pode ser calculado usando a fórmula: [ x \cdot y = z_2 
 ( z_0 = x_0 \cdot y_0 ) (produto das partes menos significativas),
 ( z_2 = x_1 \cdot y_1 ) (produto das partes mais significativas),
 ( z_1 = (x_1 + x_0) \cdot (y_1 + y_0) - z_2 - z_0 ) (produto cruzado ajustado).
-A fórmula evita a necessidade de calcular quatro multiplicações separadas (como no método tradicional), reduzindo-as para apenas três multiplicações recursivas (( z_0 ), ( z_1 ), ( z_2 )) e algumas operações adicionais de soma e subtração.
+A fórmula evita a necessidade de calcular quatro multiplicações separadas (como no método tradicional), reduzindo-as para apenas três multiplicações recursivas (( z_0 ), ( z_1 ), ( z_2 )) e algumas operações adicionais de soma e subtração. 
+
+## Lógica de Como foi Implementado 
+
+Linha 3-4: Caso base, em que, se os parâmetros forem menores que 10, executa a multiplicação normalmente por ser mais eficaz
+Linha 5-8: Determina o tamanho dos números 
+Linha 9-12: Divide os números em duas partes
+Linha 13-17: Calcula os três produtos necessários para aplicar a fórmula de karatsuba
+Linha 18-20: Retorna o resultado da fórmula de karatsuba
 
 ## Complexidade
 No método tradicional, a multiplicação de dois números com ( n ) dígitos tem complexidade ( O(n^2) ), pois cada dígito de um número é multiplicado por cada dígito do outro.
@@ -57,5 +65,61 @@ y: Segundo número
 Retorno:
 Resultado da multiplicação dos dois números
 
+# Relatório Técnico 
 
+## Fluxo de Controle da Função 
 
+1. Início da Função
+2. Verificação da condição x < 10 or y < 10
+   - Se verdadeiro: retorna x* y
+   - Se falso: Passa direto para a próxima iteração
+3. Inicializa a variável n
+4. Inicializa a variável m
+5. Inicializa as variáveis high_x e low_x
+6. Inicializa as variáveis high_y e low_y
+7. Inicializa a variável z0
+8. Inicializa a variável z1
+9. Inicializa a variável z2
+10. Retorna o resultado da fórmula de karatsuba
+
+Nós: 
+1. Início da Função
+2. Verificação do if
+3. Ação dentro do if
+4. Inicializaçao de n
+5. Inicializaçao de m
+6. Inicialização das variáveis high_x e low_x
+6. Inicialização das variáveis high_y e low_y
+7. Inicialização da variável z0
+8. Inicialização da variável z1
+9. Inicialização da variável z2
+10. Retorno final
+
+Arestas: 
+1. Inicio do nó para verificação do if
+2. Verificação do If para ação dentro do if
+3. Verificação do If para retorno final
+4. Ação dentro do if para inicialização de n
+5. Inicialização de n para inicialização de m
+6. Inicialização de m para inicialização das variáveis high_x e low_x
+7. Inicalização das variáveis high_x e low_x para a Inicialização das variáveis high_y e low_y
+8. Inicialização das variáveis high_y e low_y para inicialização da variável z0
+9. Inicialização da variável z0 para inicialização da variável z1
+10. Inicialização da variável z1 para inicialização da variável z2
+11. Inicialização da variável z2 para retorno final
+
+![image](https://github.com/user-attachments/assets/484c115e-989b-440d-921a-9b230a38165a)
+
+### Complexidade Ciclomática = E - N + 2P = 11 - 10 + 2*1 = 3 
+
+### Complexidade Assintótica
+
+**Complexidade temporal:** 
+- Melhor caso: O(1)
+- Caso Médio: O(n^{1.585})
+- Pior caso: O(n^{1.585})
+
+**Complexidade Espacial:**
+- Melhor caso: O(1)
+- Caso Médio: (O(\log n)
+- Pior Caso: O(\log n)
